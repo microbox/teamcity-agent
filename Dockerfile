@@ -64,7 +64,7 @@ ENV JAVA_OPTS="-Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom 
     GOROOT="/usr/local/go" \
     GOPATH="/root/go" \
     M2_HOME="/root/.maven" \
-    DOCKER_HOST=tcp://docker:2376 \
+    DOCKER_HOST=tcp://docker:2375 \
     PATH="/usr/local/go/bin:/root/.maven/bin:$PATH"
 
 WORKDIR /usr/share/BuildAgent
