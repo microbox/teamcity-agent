@@ -69,6 +69,6 @@ ENV JAVA_OPTS="-Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom 
 
 WORKDIR /usr/share/BuildAgent
 
-EXPOSE 9000
+EXPOSE 9090
 
 CMD ["./bin/agent.sh", "run"]
