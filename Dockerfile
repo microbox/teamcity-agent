@@ -52,7 +52,7 @@ RUN curl -jksSL https://get.docker.com/builds/Linux/x86_64/docker-${DOCKER_VERSI
 
 # Docker Compose
 ENV DOCKER_COMPOSE_VERSION=1.9.0
-RUN curl -jksSLo /usr/local/bin/docker-compose https://github.com/docker/compose/releases/download/{{DOCKER_COMPOSE_VERSION}}/docker-compose-Linux-x86_64 \
+RUN curl -Lo /usr/local/bin/docker-compose https://github.com/docker/compose/releases/download/{{DOCKER_COMPOSE_VERSION}}/docker-compose-Linux-x86_64 \
     chmod +x /usr/local/bin/docker-compose
 
 # Ansible
