@@ -31,25 +31,34 @@ RUN mkdir /root/.maven && \
     | tar -xzf - --strip-components=1 -C /root/.maven
 
 # Go
-ENV GO_VERSION=1.6.2
+ENV GO_VERSION=1.7.3
 RUN curl -jksSL https://storage.googleapis.com/golang/go${GO_VERSION}.linux-amd64.tar.gz \
     | tar -xzf - -C /usr/local
 
 # Nodejs
-ENV NODEJS_VERSION=6.3.0
+ENV NODEJS_VERSION=6.9.1
 RUN curl -jksSL https://nodejs.org/dist/v${NODEJS_VERSION}/node-v${NODEJS_VERSION}-linux-x64.tar.gz \
     | tar -xzf - --strip-components=1 -C /usr/local
 
+# Yarn
+ENV YARN_VERSION=0.17.8
+RUN npm install -g yarn@${YARN_VERSION}
+
 # Docker
-ENV DOCKER_VERSION=1.11.2
+ENV DOCKER_VERSION=1.12.3
 RUN curl -jksSL https://get.docker.com/builds/Linux/x86_64/docker-${DOCKER_VERSION}.tgz \
     | tar -xzf - --strip-components=1 -C /usr/local/bin/ && \
     chmod +x /usr/local/bin/docker*
 
+# Docker Compose
+ENV DOCKER_COMPOSE_VERSION=1.9.0
+RUN curl -jksSLo /usr/local/bin/docker-compose https://github.com/docker/compose/releases/download/{{DOCKER_COMPOSE_VERSION}}/docker-compose-Linux-x86_64 \
+    chmod +x /usr/local/bin/docker-compose
+
 # Ansible
 ADD config/ansible/library /root/.ansible_library
 
-# Ansible
+# Ansible Config
 ADD config/ansible/ansible.cfg /etc/ansible/ansible.cfg
 
 # SBT
@@ -57,7 +66,6 @@ ADD config/sbt /usr/local/bin
 
 # Build Agent
 ADD config/buildAgent /usr/share/BuildAgent/conf
-
 
 # Environment settings
 ENV JAVA_OPTS="-Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom -server -XX:+UseParallelGC" \
