@@ -41,7 +41,7 @@ RUN curl -jksSL https://nodejs.org/dist/v${NODEJS_VERSION}/node-v${NODEJS_VERSIO
     | tar -xzf - --strip-components=1 -C /usr/local
 
 # Yarn
-ENV YARN_VERSION=0.17.8
+ENV YARN_VERSION=0.17.9
 RUN npm install -g yarn@${YARN_VERSION}
 
 # Docker
