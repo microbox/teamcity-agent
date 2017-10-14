@@ -7,7 +7,6 @@ ENV LANG="en_US.UTF-8" \
 
 # TeamCity Version
 ENV TEAMCITY_VERSION 9.1.7
-                http://download.jetbrains.com/teamcity/TeamCity-9.1.7.tar.gz
 RUN curl -jksSL https://download.jetbrains.com/teamcity/TeamCity-${TEAMCITY_VERSION}.tar.gz \
     | tar -xzf - -C /usr/share && \
     mv /usr/share/TeamCity/buildAgent /usr/share/BuildAgent && \
