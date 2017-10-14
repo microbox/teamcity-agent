@@ -7,6 +7,7 @@ ENV LANG="en_US.UTF-8" \
 
 # TeamCity Version
 ENV TEAMCITY_VERSION 9.1.7
+                http://download.jetbrains.com/teamcity/TeamCity-9.1.7.tar.gz
 RUN curl -jksSL https://download.jetbrains.com/teamcity/TeamCity-${TEAMCITY_VERSION}.tar.gz \
     | tar -xzf - -C /usr/share && \
     mv /usr/share/TeamCity/buildAgent /usr/share/BuildAgent && \
@@ -20,7 +21,7 @@ RUN echo "[epel]" > /etc/yum.repos.d/epel.repo && \
     echo "enabled=1" >> /etc/yum.repos.d/epel.repo && \
     echo "gpgcheck=0" >> /etc/yum.repos.d/epel.repo && \
     yum groupinstall -y 'Development Tools' && \
-    yum install -y git ansible make wget tar openssl-devel libkrb5-dev freetype fontconfig && \
+    yum install -y git ansible make wget tar zip openssl-devel libkrb5-dev freetype fontconfig && \
     yum clean all && \
     rm -f /etc/yum.repos.d/epel.repo
 
