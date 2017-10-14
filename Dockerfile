@@ -20,7 +20,7 @@ RUN echo "[epel]" > /etc/yum.repos.d/epel.repo && \
     echo "enabled=1" >> /etc/yum.repos.d/epel.repo && \
     echo "gpgcheck=0" >> /etc/yum.repos.d/epel.repo && \
     yum groupinstall -y 'Development Tools' && \
-    yum install -y git ansible make wget tar zip openssl-devel libkrb5-dev freetype fontconfig && \
+    yum install -y git ansible make wget tar zip openssl-devel openssh-client libkrb5-dev freetype fontconfig && \
     yum clean all && \
     rm -f /etc/yum.repos.d/epel.repo
 
