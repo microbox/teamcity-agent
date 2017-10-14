@@ -36,12 +36,12 @@ RUN curl -jksSL https://storage.googleapis.com/golang/go${GO_VERSION}.linux-amd6
     | tar -xzf - -C /usr/local
 
 # Nodejs
-ENV NODEJS_VERSION=6.9.1
+ENV NODEJS_VERSION=6.11.1
 RUN curl -jksSL https://nodejs.org/dist/v${NODEJS_VERSION}/node-v${NODEJS_VERSION}-linux-x64.tar.gz \
     | tar -xzf - --strip-components=1 -C /usr/local
 
 # Yarn
-ENV YARN_VERSION=0.17.9
+ENV YARN_VERSION=0.21.3
 RUN npm install -g yarn@${YARN_VERSION}
 
 # Docker
